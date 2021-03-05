@@ -9,7 +9,8 @@ while num != 0 and num > 0:
   if num < 0 or num == 0:
     continue
   suma += num
+  print(suma)
 
-print(suma)
+
   
   

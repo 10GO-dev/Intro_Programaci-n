@@ -6,11 +6,13 @@ num = [[0,"cero"],[1,"uno"],[2,"dos"],[3,"tres"],
 
 numero = int(input( "Ingrese un numero: "))
 
-for x in range(len(num)):
-  if numero == num[x][0]:
-    print(num[x][1])
-    
+if numero >= 0 and numero <= 9:
+  for x in range(len(num)):
+    if numero == num[x][0]:
+      print(num[x][1])
+else: 
+  print("Tienes que ingresar un numero del 1 al 9")
 
    
 
-   
+  
