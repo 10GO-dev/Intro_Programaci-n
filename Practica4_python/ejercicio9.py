@@ -1,3 +1,5 @@
+'''crear una clase que permita ingresar valores enteros por teclados y nos muestre la tabla
+de multiplicar de dicho valor. finalizar el programa al ingresar -1'''
 def tabla_de_multiplicar():
   multiplo = 1
   for x in range(10):
