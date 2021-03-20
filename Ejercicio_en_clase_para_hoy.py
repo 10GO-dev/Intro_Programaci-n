@@ -1,5 +1,3 @@
-from os import error
-
 
 class Cliente:
   User = [
@@ -96,6 +94,7 @@ def Banco():
             error +=1
       if error == 4:
         print("no hay cuenta asociada a ese codigo")
+        error = 0 
     if cuenta == 0:
       print("Has finalizado el programa")
       break;
