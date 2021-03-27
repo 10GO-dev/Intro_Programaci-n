@@ -12,10 +12,10 @@ class contacto:
         print("\n---------------------------------------")
         print(" Ingresa los datos del nuevo contacto  ")
         print("---------------------------------------")
-        self.nombre.append(input("Ingresa el nombre: "))          #
-        self.telefono.append(int(input("Ingresa el telefono: "))) #Aqui intrusco valores a la listas paralelas
-        self.mail.append(input("Ingresa el Email: "))             #
-        self.direccion.append((input("Ingresa la direccion: ")))  #
+        self.nombre.append(input("Ingresa el nombre: "))          
+        self.telefono.append(int(input("Ingresa el telefono: "))) 
+        self.mail.append(input("Ingresa el Email: "))     
+        self.direccion.append((input("Ingresa la direccion: ")))  
         print("----------------------------------------\n")
         print("    El contacto se agregó correctamente   ")
         print("----------------------------------------\n")
