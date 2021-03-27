@@ -31,15 +31,16 @@ class ProbarContacto():
 
 
 #----------- Aqui ingresamos los nombres
-contactos = ProbarContacto()
-contactos.objeto1.SetContacto()
-contactos.objeto2.SetContacto()
+#contactos = ProbarContacto()
+#contactos.objeto1.SetContacto()
+#contactos.objeto2.SetContacto()
 
 #-------------- Aqui el saludo
-print("\n---------saludo objeto 1----------\n")
-contactos.objeto1.Saludar()
-print("\n---------saludo objeto 2----------\n")
-contactos.objeto2.Saludar()
+#print("\n---------saludo objeto 1----------\n")
+#contactos.objeto1.Saludar()
+#print("\n---------saludo objeto 2----------\n")
+#contactos.objeto2.Saludar()
 
-
+x = dir(Contacto())
+print(x) 
 

@@ -1,5 +1,4 @@
-'''5.Cargar una lista de 10 enteros, luego mostrarlos por pantalla a cada elemento separados por una coma.
- Usando funciones. '''
+'''5. '''
 
 numeros = []
 
