@@ -1,57 +1,67 @@
+import os 
+import pandas as pd
+
+os.system('cls')
+
+
 class contacto:
     #Constructor
     def __init__(self):
-        self.nombre = []
-        self.telefono = []
-        self.mail = []
-        self.direccion = []
+        self.contactos = {"Nombre":[],"Telefono":[],"Mail":[],"Direccion":[]}
         self.cantidad_contactos = 0
     
     #funcion Crear contacto
     def crearContacto(self):
+        os.system('cls')
         print("\n---------------------------------------")
         print(" Ingresa los datos del nuevo contacto  ")
-        print("---------------------------------------")
-        self.nombre.append(input("Ingresa el nombre: "))          
-        self.telefono.append(int(input("Ingresa el telefono: "))) 
-        self.mail.append(input("Ingresa el Email: "))     
-        self.direccion.append((input("Ingresa la direccion: ")))  
+        print("---------------------------------------") 
+        self.contactos["Nombre"].append(input("Ingresa el nombre: "))          
+        self.contactos["Telefono"].append(int(input("Ingresa el telefono: ")))
+        self.contactos["Mail"].append(input("Ingresa el Email: "))     
+        self.contactos["Direccion"].append(input("Ingresa la direccion: "))
+        os.system('cls') 
         print("----------------------------------------\n")
         print("    El contacto se agregó correctamente   ")
         print("----------------------------------------\n")
         self.cantidad_contactos += 1
 
     #funcion lista contactos
-    def listaContactos(self): 
-        print("\n___________________________________________________________________________________")
-        print("|Nombre               |Telefono         |Mail                 |Direccion           |")
-        print("-------------------------------------------------------------------------------------")
-        for x in range(self.cantidad_contactos):
-            print("|",x,"|",self.nombre[x],"   |",self.telefono[x],"   |",self.mail[x],"   |",self.direccion[x],"   ")
-            print("-------------------------------------------------------------------------------------------------")
-
+    def listaContactos(self):
+        self.Contact_list = pd.DataFrame(self.contactos)
+        os.system('cls')
+        print("======================================================================")
+        print(self.Contact_list)
+        print("======================================================================")
+        
     #funcion buscar contacto
     def buscarContacto(self):
-        global error;
+        global error
         error = 0
         nom = input("| Ingresa el nombre del contacto: ")
-        for x in range(self.cantidad_contactos):
-            if self.nombre[x] == nom:
-                print("\n|",self.nombre[x],"|",self.telefono[x],"|",self.mail[x],"|",self.direccion[x],"\n")
+        for x in range(len(self.contactos["Nombre"])):
+            if nom in self.contactos["Nombre"][x]:
+                Buscar = pd.DataFrame(self.contactos)
+                os.system('cls')
+                print("=========================================================================")
+                print(Buscar.loc[x])
+                print("=========================================================================")
             else: 
+                os.system('cls')
                 print("\n-------------------------------------------------------")
                 print("\nNo existe un contacto con ese nombre intentalo de nuevo")
                 error +=1 
 
     #funcion modificar contacto
     def modificarContacto(self):
-        print("\n")
-        for x in range(self.cantidad_contactos):
-            print("|",x,"|",self.nombre[x],"   |",self.telefono[x],"   |",self.mail[x],"   |",self.direccion[x],"   ")
-            print("-------------------------------------------------------------------------------------------------")
+        print("============================================================================")
+        print(self.Contact_list)
+        print("============================================================================\n")
+        
         selectContacto = int(input("Ingresa el numero referente al contacto: "))
         for b in range(self.cantidad_contactos):
              if b == selectContacto:
+                os.system('cls')
                 print("\n---------------------------------------------------------")
                 print("|                   Modificar contacto                   |")
                 print("|--------------------------------------------------------|")
@@ -62,21 +72,28 @@ class contacto:
                 print("----------------------------------------------------------\n")
                 opcion = int(input("Elige el dato a modificar: "))
                 if opcion == 1:
-                    self.telefono[b] = int(input("Ingresa el nuevo numero: "))
+                    print("Su telfono actual es: ",self.contactos["Telefono"][b],"\n")
+                    self.contactos["Telefono"][b] = int(input("Ingresa el nuevo numero: "))
+                    os.system('cls')
                     print("\n------------------------------------------------------")
                     print("        El telefono se modifico correctamente")
                     print("\n------------------------------------------------------")
                 elif opcion == 2:
-                    self.mail[b] = input("Ingresa el nuevo mail: ")
+                    print("Su mail actual es: ",self.contactos["Mail"][b],"\n")
+                    self.contactos["Mail"][b] = input("Ingresa el nuevo mail: ")
+                    os.system('cls')
                     print("\n------------------------------------------------------")
                     print("        El mail se modifico correctamente")
                     print("\n------------------------------------------------------")
                 elif opcion == 3:
-                    self.direccion[b] = input("Ingresa la nueva direccion: ")
+                    print("Su direccion actual es: ",self.contactos["Direccion"][b],"\n")
+                    self.contactos["Direcccion"][b] = input("Ingresa la nueva direccion: ")
+                    os.system('cls')
                     print("\n------------------------------------------------------")
                     print("        La direccion se modifico correctamente")
                     print("\n------------------------------------------------------")
                 elif opcion == 4:
+                    os.system('cls')
                     print("\nHas cancelado la operacion")
         
     #funcion Menu principal
@@ -95,14 +112,17 @@ class contacto:
 
         while opcion != 5:
             if opcion == 1:
+               os.system('cls')
                self.crearContacto()
                self.Menu()
                break;
             elif opcion == 2:
+                os.system('cls')
                 self.listaContactos()
                 self.Menu()
                 break;
             elif opcion == 3:
+                os.system('cls')
                 print("\n--------------------------------------------------")
                 print("                 Buscar contactos                 ")
                 print("--------------------------------------------------\n")
@@ -112,10 +132,12 @@ class contacto:
                 self.Menu()
                 break;
             elif opcion == 4:
+                os.system('cls')
                 self.modificarContacto()
                 self.Menu()
                 break;
         else:
+            os.system('cls')
             print("Programa Finalizado")
 
 
