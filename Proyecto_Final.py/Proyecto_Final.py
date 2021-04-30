@@ -72,8 +72,15 @@ class Prestamo: #Clase principal prestamo
             self.datos_Amortizacion["Balance "].append(Moneda.format(round(self.monto,2))) #Agrega el balance.
             self.pago += 1 #incrementa la variable pago. 
 
-            if self.fecha_pago.month == 12: #Condición para aumentar una año cada vez que el mes sea igual a 12
+            if self.fecha_pago.day == 29:
+                self.fecha_pago = self.fecha_pago.replace(day=self.fecha_pago.day-1)
+            if self.fecha_pago.day == 30:
+                self.fecha_pago = self.fecha_pago.replace(day=self.fecha_pago.day-2)
+            if self.fecha_pago.day == 31:
+                self.fecha_pago = self.fecha_pago.replace(day=self.fecha_pago.day-3)
+            elif self.fecha_pago.month == 12: #Condición para aumentar una año cada vez que el mes sea igual a 12
                 self.fecha_pago = self.fecha_pago.replace(year=self.fecha_pago.year + 1,month=1)
+            
             else: #si la condicion de arriba no se cumple solo aumenta el mes
                 self.fecha_pago = self.fecha_pago.replace(month=self.fecha_pago.month + 1)
 
